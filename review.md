@@ -76,15 +76,42 @@
 ## Todo作成機能
 
 ### Requestクラスのallメソッドは何をしているか
+- $inputs = $request->all();
+
+- フォームから送信された全てのデータを連想配列の形で取得している
+- $requestは、Illuminate\Http\Requestクラスのインスタンス
 
 
 ### fillメソッドは何をしているか
+- $todo->fill($inputs);
+
+- 連想配列で取得した値を->fill()を使用して、Todoインスタンスの各プロパティに一括で代入している
+- ->fill()は$todo->{連想配列のkey} = {連想配列のvalue}を配列の全ての要素に対して行ってくれる
+
 
 ### $fillableは何のために設定しているか
+- protected $fillable = [
+    'content',
+  ];
+
+- $fillableというプロパティは、名前の通り->fill()によってModelに代入可能なプロパティを記述するもの。
+  一括代入には脆弱性があるため$fillableを定義して代入できる項目に制限をかける必要がある。
+  対策をせずに使用すると悪意のあるユーザに攻撃されてしまう恐れがある。
+
 
 ### saveメソッドで実行しているSQLは何か
+- $todo->save();
+
+- INSERT INTO todos (content) VALUES (:content);
+- Todoインスタンスの'->save()'を実行してオブジェクトの状態をDBに保存するINSERT文を実行
+
 
 ### redirect()->route()は何をしているか
+- return redirect()->route('todo.index');
+
+- ToDoが新規作成された後に、白い画面ではなく一覧画面を表示させたいので、一覧画面にリダイレクトするルートを定義している
+- redirect()->route('ルート名')とすることでリダイレクトさせることができる
+
 
 ## その他
 
