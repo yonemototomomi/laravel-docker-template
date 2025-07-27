@@ -25,10 +25,10 @@ class TodoController extends Controller
     {
         $content = $request->input('content');
 
-        dd($content);
+        $todo = new Todo(); 
+        $todo->content = $content;
+        $todo->save();
+
+        return redirect()->route('todo.index');
     }
-    // public function store()
-    // {
-    //     dd('新規作成のルート実行！');
-    // }
 }
