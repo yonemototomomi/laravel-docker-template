@@ -27,7 +27,7 @@ class TodoController extends Controller
         dd($inputs);
 
         $todo = new Todo(); 
-        $todo->content = $inputs['content'];
+        $todo->fill($inputs);
         $todo->save();
 
         return redirect()->route('todo.index');
