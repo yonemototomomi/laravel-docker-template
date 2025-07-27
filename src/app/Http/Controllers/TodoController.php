@@ -21,4 +21,8 @@ class TodoController extends Controller
         return view('todo.create');
     }
 
+    public function store()
+    {
+        dd('新規作成のルート実行！');
+    }
 }
