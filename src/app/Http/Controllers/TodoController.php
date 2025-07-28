@@ -31,4 +31,10 @@ class TodoController extends Controller
 
         return redirect()->route('todo.index');
     }
+
+    public function show($id)
+    {
+        $model = new Todo();
+        $todo = $model->find($id);
+    }
 }
