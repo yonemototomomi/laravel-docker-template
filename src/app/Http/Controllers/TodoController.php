@@ -22,12 +22,6 @@ class TodoController extends Controller
         $todos = $this->todo->all();
 
         return view('todo.index', ['todos' => $todos]);
-
-        // $todo = new Todo();
-        // $todos = $todo->all();
-
-        // return view('todo.index', ['todos' => $todos]);
-
     }
 
     public function create()
@@ -43,14 +37,6 @@ class TodoController extends Controller
         $this->todo->save();
 
         return redirect()->route('todo.index');
-
-        // $inputs = $request->all();
-
-        // $todo = new Todo(); 
-        // $todo->fill($inputs);
-        // $todo->save();
-
-        // return redirect()->route('todo.index');
     }
 
     public function show($id)
@@ -80,6 +66,6 @@ class TodoController extends Controller
         $todo = $this->todo->find($id);
         $todo->delete();
 
-        return redirect()->route('todo.index',$todo->id);
+        return redirect()->route('todo.index');
     }
 }
