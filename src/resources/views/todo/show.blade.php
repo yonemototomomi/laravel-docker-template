@@ -12,7 +12,7 @@
       </div>
       <div class="row">
         <div class="col-auto">
-          <a href="{{ route('todo.edit',['id' => $todo->id]) }}" class="btn btn-info">編集する</a>
+          <a href="{{ route('todo.edit',$todo->id) }}" class="btn btn-info">編集する</a>
         </div>
       </div>
     </div>
