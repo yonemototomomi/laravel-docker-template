@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
 
-// use Illuminate\Http\Request;
-
 use App\Todo;
 
 class TodoController extends Controller
@@ -32,7 +30,7 @@ class TodoController extends Controller
     public function store(TodoRequest $request)
     {
         $inputs = $request->all();
-
+        
         $this->todo->fill($inputs);
         $this->todo->save();
 
@@ -54,7 +52,7 @@ class TodoController extends Controller
     public function update(TodoRequest $request, $id)
     {
         $inputs = $request->all();
-
+       
         $todo = $this->todo->find($id);
         $todo->fill($inputs)->save();
 
